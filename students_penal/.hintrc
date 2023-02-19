@@ -1,0 +1,53 @@
+{
+  "extends": [
+    "development"
+  ],
+  "hints": {
+    "meta-viewport": "off",
+    "axe/parsing": [
+      "default",
+      {
+        "duplicate-id-aria": "off",
+        "duplicate-id-active": "off"
+      }
+    ],
+    "axe/name-role-value": [
+      "default",
+      {
+        "link-name": "off",
+        "button-name": "off"
+      }
+    ],
+    "axe/forms": [
+      "default",
+      {
+        "label": "off"
+      }
+    ],
+    "apple-touch-icons": "off",
+    "no-inline-styles": "off",
+    "disown-opener": "off",
+    "axe/aria": [
+      "default",
+      {
+        "aria-allowed-attr": "off",
+        "aria-required-children": "off",
+        "aria-progressbar-name": "off",
+        "aria-required-parent": "off"
+      }
+    ],
+    "axe/structure": [
+      "default",
+      {
+        "listitem": "off"
+      }
+    ],
+    "axe/text-alternatives": [
+      "default",
+      {
+        "image-alt": "off"
+      }
+    ],
+    "meta-charset-utf-8": "off"
+  }
+}
