@@ -3,7 +3,6 @@
 <html lang="en">
 
 <head>
-  <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link rel="apple-touch-icon" sizes="76x76" href="/img/apple-icon.png">
   <link rel="icon" type="image/png" href="/img/favicon.png">
@@ -54,23 +53,7 @@
             <span class="nav-link-text ms-1">Tenants</span>
           </a>
         </li>
-        <!-- <li class="nav-item">
-          <a class="nav-link text-white " href="/teacher/">
-            <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="material-icons opacity-10">receipt_long</i>
-            </div>
-            <span class="nav-link-text ms-1">Teacher</span>
-          </a>
-        </li> -->
-        <!-- <li class="nav-item">
-          <a class="nav-link text-white active bg-gradient-primary" href="/salaryslip/">
-            <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="material-icons opacity-10">receipt_long</i>
-            </div>
-            <span class="nav-link-text ms-1">Salary Slip</span>
-          </a>
-      </li> -->
-
+       
         <li class="nav-item">
           <a class="nav-link text-white " href="/viewstudents/">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
@@ -214,7 +197,8 @@
                     </tr>
                   </thead>
                   <tbody>
-                    {%for i in data %}
+                   
+                    {% for i in data %}
                     <tr>
                       
                       <td>
@@ -243,6 +227,7 @@
                       </td>
                     </tr>
                      {% endfor %}
+                     
                   </tbody>
                 </table>
               </div>

@@ -7,7 +7,8 @@ from . models import Student , Course
 
 
 def courses(request):
-    return render(request,'courses.html')
+    data=Course.objects.all()
+    return render(request,'courses.html',{"data":data})
 
 def addcourse(request):
     if request.method=='POST':
@@ -25,7 +26,13 @@ def addcourse(request):
             messages.success(request,"Added Succesfully")
             data=Course.objects.all()
             return render(request,'courses.html',{"data":data})
-    return redirect('/courses/')
+    else:
+        return render(request,'courses.html',{"data":data})
+        
+        
+def update_view(request, uid):
+    res = Course.objects.get(id=uid)
+    return render(request, 'updatecourse.html', {'course': res,})  
 
 def updatecourse(request):
     if request.method == 'POST':
