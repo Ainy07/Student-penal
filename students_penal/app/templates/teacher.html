@@ -29,7 +29,7 @@
     id="sidenav-main">
     <div class="sidenav-header">
       <i class="fas fa-times p-3 cursor-pointer text-white opacity-5 position-absolute end-0 top-0 d-none d-xl-none"
-        aria-hidden="true" id="iconSidenav"></i>    
+        aria-hidden="true" id="iconSidenav"></i>
       <a class="navbar-brand m-0" href=" " target="_blank">
 
         <span class="ms-1 font-weight-bold text-white">Satkar Courses</span>
@@ -46,11 +46,28 @@
             <span class="nav-link-text ms-1">Dashboard</span>
           </a>
         </li>
+       
+        <li class="nav-item">
+          <a class="nav-link text-white active bg-gradient-primary" href="/teacher/">
+            <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+              <i class="material-icons opacity-10">receipt_long</i>
+            </div>
+            <span class="nav-link-text ms-1">Teacher</span>
+          </a>
+        </li>
         
-        
-        
+        <!-- <li class="nav-item">
+          <a class="nav-link text-white" href="/salaryslip/">
+            <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-currency-rupee" viewBox="0 0 16 16">
+                  <path d="M4 3.06h2.726c1.22 0 2.12.575 2.325 1.724H4v1.051h5.051C8.855 7.001 8 7.558 6.788 7.558H4v1.317L8.437 14h2.11L6.095 8.884h.855c2.316-.018 3.465-1.476 3.688-3.049H12V4.784h-1.345c-.08-.778-.357-1.335-.793-1.732H12V2H4v1.06Z"/>
+                </svg>
+            </div>
+            <span class="nav-link-text ms-1">Salary Slip</span>
+          </a>
+      </li> -->
       <li class="nav-item">
-          <a class="nav-link text-white active bg-gradient-primary " href="/viewstudents/">
+          <a class="nav-link text-white " href="/viewstudents/">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-people-fill" viewBox="0 0 16 16">
                   <path d="M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1H7Zm4-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm-5.784 6A2.238 2.238 0 0 1 5 13c0-1.355.68-2.75 1.936-3.72A6.325 6.325 0 0 0 5 9c-4 0-5 3-5 4s1 1 1 1h4.216ZM4.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z"/>
@@ -73,19 +90,11 @@
           <h6 class="ps-4 ms-2 text-uppercase text-xs text-white font-weight-bolder opacity-8">Account pages</h6>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-white " href="/profile/">
+          <a class="nav-link text-white " href="/profile.html">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
               <i class="material-icons opacity-10">person</i>
             </div>
             <span class="nav-link-text ms-1">Profile</span>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link text-white " href="/teacher/">
-            <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="material-icons opacity-10">person</i>
-            </div>
-            <span class="nav-link-text ms-1">Teacher</span>
           </a>
         </li>
         <li class="nav-item">
@@ -120,7 +129,7 @@
         <nav aria-label="breadcrumb">
           <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
             <li class="breadcrumb-item text-sm"><a class="opacity-5 text-dark" href="javascript:;">Dashboard</a></li>
-            <li class="breadcrumb-item text-sm text-dark active" aria-current="page">All Students</li>
+            <li class="breadcrumb-item text-sm text-dark active" aria-current="page">Teacher</li>
           </ol>
         </nav>
         <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">
@@ -159,8 +168,8 @@
                 <i class="material-icons opacity-10">weekend</i>
               </div>
               <div class="text-end pt-1">
-                <a class="btn bg-gradient-dark mb-0" href="javascript:;" data-bs-toggle="modal"
-                  data-bs-target="#exampleModal"><i class="material-icons text-sm">add</i>Add Students</a>
+                <a class="btn bg-gradient-dark mb-0" href="{%static 'javascript:;'}" data-bs-toggle="modal"
+                  data-bs-target="#exampleModal"><i class="material-icons text-sm">add</i>Add Teacher</a>
               </div>
             </div>
 
@@ -174,7 +183,7 @@
             <div class="card-header pb-0">
               <div class="row">
                 <div class="col-lg-6 col-7">
-                  <h6>Total Students</h6>
+                  <h6>Total Teacher</h6>
                 </div>
 
               </div>
@@ -186,77 +195,43 @@
                   <thead>
 
                     <tr>
-                    </th>
-                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">id
-                    </th>
                       <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7"> Name</th>
                       <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2"> Email</th>
-                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7"> Mobile
+                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Mobile
                         No.</th>
+                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Education
                       </th>
-                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">college
+                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Join Date
                       </th>
-                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Degree
+                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Work Experience
                       </th>
-                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Course
-                      </th>
-                      
-                    </th>
-                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">duration
-                    </th>
-                  </th>
-                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">fees
-                  </th>
-                  </th>
-                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">paid 
-                  </th>
                       <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                        total </th>
+                        CTC</th>
                     </tr>
-                  </th>
-                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">due 
-                  </th>
                   </thead>
-                  {% for st in stu %}
+                  <tbody>
+                    {% for i in teacher %}
                     <tr>
-                      <td class="align-middle text-center text-sm">{{st.id}}</td>
-                      <td class="align-middle text-sm">{{st.sname}}</td>
-                      <td class="align-middle text-sm">{{st.semail}}</td>
-                      <td class="align-middle text-center text-sm">{{st.smobile}}</td>
-                      <td class="text-center text-sm">{{st.scollege}}</td>
-                      <td class="text-center text-sm">{{st.sdegree}}</td>
-                      <td class="text-center text-sm">{{st.scourse.coursename}}</td>
-                      <td class="text-center text-sm">{{st.scourse.courseduration}}</td>
-                      <td class="text-center text-sm">{{st.scourse.soursefees}}</td>
-                      <td class="text-center text-sm">{{st.paid_amount}}</td>
-                      <td class="text-center text-sm">{{st.total_amount}}</td>
-                      <td class="text-center text-sm">{{st.due_amount}}</td>
-                      <td>
-                        <a href="/updatestu/{{st.id}}/" class="btn btn-primary" >Update</a> 
-                      </td>
-                      <td>
-                       <a href="{% url 'delete' st.pk %}" class="btn btn-primary">delete</a>
-                      </td>
+                      <td class="align-middle text-sm">{{i.teachername}}</td>
+                      <td class="align-middle text-sm">{{i.teacheremail}}</td>
+                      <td class="align-middle text-sm">{{i.teachermobile}}</td>
+                      <td class="align-middle text-sm">{{i.education}}</td>
+                      <td class="align-middle text-sm">{{i.joindate}}</td>
+                      <td class="align-middle text-sm">{{i.workexp}}</td>
+                      <td class="align-middle text-sm">{{i.ctc}}</td>
+                      <td> <a href="/update_tech/{{i.id}}/" class="btn btn-primary" >Update</a> </td>
+                      <td><a href="/deleteteacher?tid={{i.id}}" class="btn btn-primary">delete</a></td>                  
                     </tr>
-                    </tr>
-                    {% endfor %}
+
+                    {% endfor%}
+                    
                   </tbody>
                 </table>
-            
               </div>
             </div>
           </div>
         </div>
       </div>
-      {% if messages %}
-      {% for message in messages %}               
-        <div class="alert alert-{{message.tags}} alert-dismissible fade show" role="alert">
-          <strong>Message: </strong> {{message}}
-          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        </div>
-      {% endfor %}
-      {% endif %}
-
 
 
 
@@ -265,92 +240,102 @@
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+              <h5 class="modal-title" id="exampleModalLabel">Add Teacher</h5>
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
               <div class="card-body">
-                
-                <form  name="myform" onkeyup="calculate()" method="post" action="/addstudent/" >
+                <form role="form" action="/addteacher/" method="POST">
                   {% csrf_token %}
                   <div class="row">
                     <div class="col-lg-6 col-md-6">
                       <div class="input-group input-group-outline mb-3">
-                        <label class="form-label name" for="searchInput">Name</label>
-                        <input type="text" id="searchInput" class="form-control" onfocus="focused(this)" onfocusout="defocused(this)" name="Name" id="input-field" onkeyup="validate();" required>
+                        <label class="form-label"></label>
+                        <input type="text" class="form-control" onfocus="focused(this)" placeholder="name" name="name" onfocusout="defocused(this)">
                       </div>
                     </div>
                     <div class="col-lg-6 col-md-6">
                       <div class="input-group input-group-outline mb-3">
-                        <label class="form-label">Mobile No.</label>
-                        <input type="text" class="form-control" onfocus="focused(this)" onfocusout="defocused(this)" name="Mobile" required/>
+                        <label class="form-label"></label>
+                        <input type="email" class="form-control" onfocus="focused(this)"   placeholder="Email" name="email" onfocusout="defocused(this)">
                       </div>
                     </div>
-                    <div class="col-lg-12 col-md-6">
+                    <div class="col-lg-6 col-md-6">
                       <div class="input-group input-group-outline mb-3">
-                        <label class="form-label">Email</label>
-                        <input type="email" class="form-control" onfocus="focused(this)" onfocusout="defocused(this)" name="Email">
+                        <label class="form-label"></label>
+                        <input type="number" class="form-control" onfocus="focused(this)" placeholder="Mobile No." name="mobile" onfocusout="defocused(this)">
                       </div>
                     </div>
-                    
 
-                    <div class="col-lg-12 col-md-6">
+                    <div class="col-lg-6 col-md-6">
                       <div class="input-group input-group-outline mb-3">
-                        <label class="form-label">College</label>
-                        <input type="text" class="form-control" onfocus="focused(this)" onfocusout="defocused(this)" name="College">
+                        <label class="form-label"></label>
+                        <input type="text" class="form-control" onfocus="focused(this)" placeholder="Education" name="education" onfocusout="defocused(this)">
                       </div>
                     </div>
-                    
+                    <div class="col-lg-6 col-md-6">
+                        <div class="input-group input-group-outline mb-3">
+                          <label class="form-label"></label>
+                          <input type="date" class="form-control" onfocus="focused(this)" placeholder="Join Date" name="joindate" onfocusout="defocused(this)">
+                        </div>
+                      </div>
 
-
-                    <div class="col-lg-12 col-md-6">
+                    <div class="col-lg-6 col-md-6">
                       <div class="input-group input-group-outline mb-3">
-                        <label class="form-label">Degree</label>
-                        <input type="text" class="form-control" onfocus="focused(this)" onfocusout="defocused(this)" name="Degree">
+                        <label class="form-label"></label>
+                        <input type="text" class="form-control" onfocus="focused(this)" name="workexp" placeholder="Work Experience" onfocusout="defocused(this)">
                       </div>
                     </div>
-                    <div class="col-lg-12 col-md-6">
+
+                    <div class="col-lg-6 col-md-6">
+                        <div class="input-group input-group-outline mb-3">
+                          <label class="form-label"></label>
+                          <input type="text" class="form-control" onfocus="focused(this)" name="ctc" placeholder="ctc" onfocusout="defocused(this)">
+                        </div>
+                      </div>
+
+
+                   
+                   <!-- <div class="col-lg-6 col-md-6">
                       <div class="input-group input-group-outline mb-3">
-                        <select class="form-select form-control" placeholder="courses" onfocus="focused(this)"
-                          onfocusout="defocused(this)" aria-label="Default select example" name="course">
-                          <option class="fw-lighter" selected>Courses</option>
-                          {% for course in addcourses %}
-                          <option value="{{course.id}}">{{course.coursename}} {{course.courseduration}} {{course.coursefees}}</option>
-                          {% endfor %}
+                        <select class="form-select form-control" onfocus="focused(this)" onfocusout="defocused(this)"
+                          aria-label="Default select example">
+                          <option selected>Fees</option>
+                          <option value="13k">13k</option>
+                          <option value="15k">15k</option>
+                          <option value=30k">30k</option>
                         </select>
                       </div>
                     </div>
-                    </div>
-                 
-                    <div class="col-lg-6 col-md-6">
-                      <div class="input-group input-group-outline mb-3">
-                        <label class="form-label">Total amount</label>
-                        <input type="text" class="form-control" onfocus="focused(this)" onfocusout="defocused(this)" name="qty"/>
-                      </div>
-                    </div>
-                    
-                    <div class="col-lg-6 col-md-6">
-                      <div class="input-group input-group-outline mb-3">
-                        <label class="form-label">Paid amount</label>
-                        <input type="text" class="form-control" onfocus="focused(this)" onfocusout="defocused(this)" name="cost" />
-                      </div>
-                    </div>
-                    
-                    <div class="col-lg-6 col-md-6">
-                      <div class="input-group input-group-outline mb-3">
-                        <label class="form-label">Due amount</label>
-                        <input type="text" class="form-control" onfocus="focused(this)" onfocusout="defocused(this)" name="DueAmount" />
-                      </div>
-                    </div>
-                    
-                    <div class="input-group input-group-outline mb-3">
-                      <textarea class="form-control col-lg-12 col-md-6" placeholder="Leave a Address here"
-                      id="floatingTextarea" name="Address"></textarea>
-                    </div>
 
+                    <div class="col-lg-6 col-md-6">
+                      <div class="input-group input-group-outline mb-3">
+                        <select class="form-select form-control" onfocus="focused(this)" onfocusout="defocused(this)"
+                          aria-label="Default select example">
+                          <option selected>Duration</option>
+                          <option value="3 Months">3 Months</option>
+                          <option value="6 Months">6 Months</option>
+                          <option value="9 Months">9 Months</option>
+                          <option value="12 Months">12 Months</option>
+
+                        </select>
+                      </div>
+                    </div>-->
+
+                    <!-- <div class="mb-3">
+                      <label for="formFile" class="form-label">Default file input example</label>
+                      
+                    </div> -->
+                    
+                    <!-- <div class="input-group input-group-outline mb-3"> -->
+                      <!-- <textarea class="form-control col-lg-12 col-md-6" placeholder="Leave a comment here" -->
+                      <!-- id="floatingTextarea"></textarea> -->
+                    <!-- </div> -->
+                    
+                  
 
                     <div class="text-center">
-                      <button type="submit" class="btn btn-lg bg-gradient-primary btn-lg w-100 mt-2 mb-0"
+                      <button type="Submit" class="btn btn-lg bg-gradient-primary btn-lg w-100 mt-2 mb-0"
                         data-bs-dismiss="modal">Submit</button>
                     </div>
                   </div>
@@ -671,25 +656,14 @@
   <!-- Github buttons -->
   <script async defer src="https://buttons.github.io/buttons.js"></script>
   <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
-  <script src="js/material-dashboard.min.js?v=3.0.0"></script>
+  <script src="{% static 'js/material-dashboard.min.js' %}"></script>
 
   <script>
-    var form = document.forms.myform,
-    qty = form.qty,
-    cost = form.cost,
-    output = form.DueAmount;
-
-  window.calculate = function (){
-    var q = parseInt(qty.value,10)||0,
-    c = parseFloat(cost.value)||0;
-    output.value = (q-c).toFixed(2);
-  }  ;
-  </script>
-  <script>
-    function validate(){
-      var element = document.getElementById('input=field');
-      element.value = element.value.replace(/[^a-zA-Z0-9@]+/,'');
-    };
+    {%if messages %}
+    {% for message in messages %}
+    window.alert("{{message}}")
+    {% endfor%}
+    {% endif%}
   </script>
 </body>
 

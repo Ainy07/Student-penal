@@ -25,7 +25,7 @@
 
 
   <main class="main-content  mt-0">
-    <div class="page-header align-items-start min-vh-100" style="background-image: url('{% static 'img/bg-smart-home-1.jpg' %}');">
+    <div class="page-header align-items-start min-vh-100" style="background-image: url('{%static 'img/bg-smart-home-1.jpg' %}');">
       <span class="mask bg-gradient-dark opacity-6"></span>
       <div class="container my-auto">
         <div class="row">
@@ -33,30 +33,43 @@
             <div class="card z-index-0 fadeIn3 fadeInBottom">
       
               <div class="card-body">
-                <form role="form" method="POST" action="/updatecourse/">
+                <form role="form" method="POST" action="/updateteacherdata/">
                   {% csrf_token %}
-                  <input type="hidden" class="form-control" name='uid' value="{{course.id}}">
+                  <input type="hidden" class="form-control" name='uid' value="{{teacher.id}}">
                   <div class="input-group input-group-outline my-3">
-                    <label class="form-label"></label>
-                    <input type="text" class="form-control" name='name' value="{{course.coursename}}">
+                    <label class="form-label">Name</label>
+                    <input type="text" class="form-control" name='name' value="{{teacher.teachername}}">
                   </div>
                   <div class="input-group input-group-outline my-3">
-                    <label class="form-label"></label>
-                    <input type="number" class="form-control" name='fees' value="{{course.coursefees}}">
+                    <label class="form-label">Email</label>
+                    <input type="email" class="form-control" name='email' value="{{teacher.teacheremail}}">
                   </div>
                   <div class="input-group input-group-outline mb-3">
-                    <label class="form-label"></label>
-                    <input type="text" class="form-control" name="duration" value="{{course.courseduration}}">
+                    <label class="form-label">Mobile No.</label>
+                    <input type="number" class="form-control" name="mobile" value="{{teacher.teachermobile}}">
                   </div>
                   <div class="input-group input-group-outline mb-3">
-                    <label class="form-label"></label>
-                    <input type="text" class="form-control" name="comment" value="{{course.coursetextbox}}">
+                    <label class="form-label">Education</label>
+                    <input type="text" class="form-control" name="education" value="{{teacher.education}}">
                   </div>
-                  
+                  <div class="input-group input-group-outline mb-3">
+                    <label class="form-label">Join Date</label>
+                    <input type="date" class="form-control" name="joindate" value="{{teacher.joindate}}">
+                  </div>
+                  <div class="input-group input-group-outline mb-3">
+                    <label class="form-label">Work Experience</label>
+                    <input type="text" class="form-control" name="workexp" value="{{teacher.workexp}}">
+                  </div>
+                  <div class="input-group input-group-outline mb-3">
+                    <label class="form-label">CTC</label>
+                    <input type="text" class="form-control" name="ctc" value="{{teacher.ctc}}">
+                  </div>
                   <div class="text-center" >
                     <button type="submit" class="btn bg-gradient-primary w-100 my-4 mb-2" >Update</button>
                   </div>
-                 
+                  <p class="mt-4 text-sm text-center">
+                    <a href="/teacher/" class="text-primary text-gradient font-weight-bold">Back</a>
+                  </p>
                 </form>
               </div>
             </div>
@@ -84,8 +97,13 @@
   <script async defer src="https://buttons.github.io/buttons.js"></script>
   <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
   <script src="{% static 'js/material-dashboard.min.js' %}"></script>
- 
+  <script>
+    {%if messages %}
+    {% for message in messages %}
+    window.alert("{{message}}")
+    {% endfor%}
+    {% endif%}
+  </script>
 </body>
 
-</html>
-
+</html>6

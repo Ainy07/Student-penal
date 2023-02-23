@@ -1,4 +1,4 @@
-from django.urls import path
+from django.urls import path,re_path
 from . import views
 urlpatterns = [
     path('',views.index),
@@ -18,4 +18,13 @@ urlpatterns = [
     path('tables/',views.tables),
     path('tenants/',views.tenants),
     path('viewstudents/',views.viewstudents),
+    path('addstudent/', views.addstudent, name='addstudent'),
+    re_path(r'^delete/(?P<pk>[0-9]+)/$', views.delete, name="delete"),
+    path('update_student/',views.update_student),
+    path('updatestu/<int:uid>/',views.updatestu),
+    path('teacher/',views.teacher),
+    path('addteacher/',views.addteacher),
+    path('deleteteacher/',views.deleteteacher),
+    path('update_tech/<int:uid>/',views.update_tech),
+    path('updateteacherdata/',views.updateteacherdata),
 ]
