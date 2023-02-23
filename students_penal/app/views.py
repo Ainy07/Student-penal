@@ -217,7 +217,7 @@ def addteacher(request):
 
 def update_tech(request,uid ):
     res = Teacher.objects.get(id=uid)
-    return render(request, 'update_tech.html', context={
+    return render(request, 'update_tech.html', {
 
         'teacher': res,
     })

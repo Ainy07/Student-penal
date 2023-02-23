@@ -16,3 +16,10 @@ class AddStudentsModelAdmin(admin.ModelAdmin):
     list_display=['sname', 'semail', 'smobile','saddress', 
                   'scollege', 'sdegree','scourse','total_amount',
                   'paid_amount','due_amount']      
+
+
+@admin.register((Teacher))
+class TeacherModelAdmin(admin.ModelAdmin):
+    list_display=['teachername', 'teacheremail', 'teachermobile','joindate', 
+                  'education', 'workexp','ctc']      
+    
