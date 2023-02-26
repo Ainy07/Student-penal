@@ -20,6 +20,6 @@ class AddStudentsModelAdmin(admin.ModelAdmin):
 
 @admin.register((Teacher))
 class TeacherModelAdmin(admin.ModelAdmin):
-    list_display=['teachername', 'teacheremail', 'teachermobile','joindate', 
-                  'education', 'workexp','ctc']      
+    list_display=['teachername','employeesid', 'teacheremail', 'teachermobile','joindate', 
+                  'education', 'workexp','photo','gender']      
     

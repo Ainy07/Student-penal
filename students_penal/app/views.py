@@ -187,60 +187,84 @@ def delete(request,pk):
 
 
 def teacher(request):
-    teacher=Teacher.objects.all()
-    return render(request,'teacher.html',{'teacher':teacher})
-
-
+    tech=Teacher.objects.all()
+    addcourses=Course.objects.all()
+    redirect('/teacher/')
+    return render (request , 'teacher.html' ,  {'tech' : tech , 'addcourses' : addcourses} )
+    
+    
 def addteacher(request):
-    if request.method=='POST':
-        Name=request.POST['name']
-        Email=request.POST['email']
-        Mobile=request.POST['mobile']
-        Education=request.POST['education']
-        Joindate=request.POST['joindate']
-        Workexp=request.POST['workexp']
-        Ctc=request.POST['ctc']
-        if Teacher.objects.filter(teacheremail=Email).exists():
-            messages.error(request,"ALREADY EXISTS")
-            teacher=Teacher.objects.all()
-            return render(request,'teacher.html',{'teacher':teacher})
+    if request.method == 'POST':
+        tech_name= request.POST.get("name")
+        tech_employeesid=request.POST.get("employeesid")
+        tech_email=request.POST.get("email")
+        tech_password=make_password(request.POST.get("password"))
+        tech_contact=request.POST.get("mobile")
+        tech_joindate=request.POST.get("joindate")
+        tech_education=request.POST.get("education")
+        tech_workexp=request.POST.get("workexp")
+        tech_addcourse_id = request.POST.get("course")
+        tech_gender=request.POST.get("radio")
+        photo = request.POST.get('photo')
+        tech_course= Course.objects.get(id=tech_addcourse_id)
+        if Teacher.objects.filter(teacheremail=tech_email).exists():
+            messages.error(request, "Email id already exists")
+            return redirect("/addteacher/")
+        
+        elif Teacher.objects.filter(teachermobile=tech_contact).exists():
+            messages.error(request, "mobile Number already exists")
+            return redirect("/addteacher/")
         else:
-            teacher=Teacher.objects.create(teachername=Name,teacheremail=Email,teachermobile=Mobile,education=Education,joindate=Joindate,workexp=Workexp,ctc=Ctc)
-            teacher.save()
-            messages.success(request,"Added Succesfully")
-            teacher=Teacher.objects.all()
-            return render(request,'teacher.html',{'teacher':teacher})
-    return redirect('/teacher/')
-      
-
-
-
-def update_tech(request,uid ):
+            Teacher.objects.create(teachername=tech_name,
+                                   employeesid=tech_employeesid,
+                                   teacheremail=tech_email,
+                                   teacherpassword=tech_password,
+                                   teachermobile=tech_contact,
+                                   joindate=tech_joindate,
+                                   education=tech_education,
+                                   workexp=tech_workexp,
+                                   teachercourse=tech_course,
+                                   gender=tech_gender,
+                                   photo=photo)
+            messages.success(request, "teacher added successfully")
+            tech=Teacher.objects.all()
+            addcourses=Course.objects.all()
+            return render (request , 'teacher.html' , {'tech':tech , 'addcourses' : addcourses })
+    else:
+        tech=Teacher.objects.all()
+        addcourses=Course.objects.all()
+        return render (request , 'teacher.html' , {'tech': tech , 'addcourses' : addcourses}) 
+       
+       
+       
+def updatetech(request,uid):
     res = Teacher.objects.get(id=uid)
-    return render(request, 'update_tech.html', {
+    addcourses= Course.objects.all()
+    
+    return render(request, 'update_tech.html', {'i': res,'addcourses':addcourses})
 
-        'teacher': res,
-    })
 
-def updateteacherdata(request):
+
+def update_teacher(request):
     if request.method == 'POST':
         uid = request.POST['uid']
-        Name = request.POST['name']
-        Email = request.POST['email']
-        Mobile = request.POST['mobile']
-        Education= request.POST['education']
-        Joindate= request.POST['joindate']
-        Work= request.POST['workexp']
-        CTC= request.POST['ctc']
-        Teacher.objects.filter(id=uid).update(teachername=Name,teacheremail=Email,
-                                            teachermobile=Mobile,education=Education,
-                                            joindate=Joindate,workexp=Work,ctc=CTC)
+        teachername = request.POST['name']
+        employeesid = request.POST['employeesid']
+        teacheremail = request.POST['email']
+        teachermobile= request.POST['mobile']
+        workexp=request.POST['workexp']
+        education = request.POST['education']
+        joindate = request.POST['joindate']
+        photo = request.POST['photo']
+        Teacher.objects.filter(id=uid).update(teachername=teachername,employeesid=employeesid,
+                                              teacheremail=teacheremail,
+                                           teachermobile=teachermobile,workexp=workexp,
+                                           education=education,
+                                           joindate=joindate,photo=photo
+                                           )
         return redirect('/teacher/')
-
-def deleteteacher(request):
-    tid=request.GET['tid']
-    Teacher.objects.get(id=tid).delete()
-    teacher=Teacher.objects.all()
-    return render(request,'teacher.html',{'teacher':teacher})
-
-
+    
+    
+def delete(request,pk):
+    use = Teacher.objects.filter(id=pk).delete()
+    return redirect("/teacher/")       

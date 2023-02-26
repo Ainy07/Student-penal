@@ -196,9 +196,12 @@
 
                     <tr>
                       <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7"> Name</th>
+                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7"> Employee id</th>
                       <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2"> Email</th>
+                      
                       <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Mobile
                         No.</th>
+                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2"> Password</th>
                       <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Education
                       </th>
                       <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Join Date
@@ -206,26 +209,34 @@
                       <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Work Experience
                       </th>
                       <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                        CTC</th>
+                        photo</th>
+                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7"> gender</th>
                     </tr>
+                    
                   </thead>
+                  {% if tech %}
                   <tbody>
-                    {% for i in teacher %}
+                    {% for i in tech %}
                     <tr>
                       <td class="align-middle text-sm">{{i.teachername}}</td>
+                      <td class="align-middle text-sm">{{i.employeesid}}</td>
                       <td class="align-middle text-sm">{{i.teacheremail}}</td>
                       <td class="align-middle text-sm">{{i.teachermobile}}</td>
+                      <td class="align-middle text-sm">{{i.teacherpassword}}</td>
                       <td class="align-middle text-sm">{{i.education}}</td>
                       <td class="align-middle text-sm">{{i.joindate}}</td>
                       <td class="align-middle text-sm">{{i.workexp}}</td>
-                      <td class="align-middle text-sm">{{i.ctc}}</td>
-                      <td> <a href="/update_tech/{{i.id}}/" class="btn btn-primary" >Update</a> </td>
-                      <td><a href="/deleteteacher?tid={{i.id}}" class="btn btn-primary">delete</a></td>                  
+                      <td class="align-middle text-sm">{{i.photo}}</td>
+                      <td class="align-middle text-sm">{{i.gender}}</td>
+                      <td class="align-middle text-sm">{{i.teachercourse}}</td>
+                      <td> <a href="/updatetech/{{i.id}}/" class="btn btn-primary" >Update</a> </td>
+                      <td><a href="{% url 'delete' i.pk %}" class="btn btn-primary">delete</a></td>                  
                     </tr>
 
                     {% endfor%}
                     
                   </tbody>
+                  {%endif%}
                 </table>
               </div>
             </div>
@@ -252,7 +263,7 @@
             </div>
             <div class="modal-body">
               <div class="card-body">
-                <form role="form" action="/addteacher/" method="POST">
+                <form role="form" action="/addteacher/" method="POST" enctype="multipart/form-data">
                   {% csrf_token %}
                   <div class="row">
                     <div class="col-lg-6 col-md-6">
@@ -261,10 +272,23 @@
                         <input type="text" class="form-control" onfocus="focused(this)" placeholder="name" name="name" onfocusout="defocused(this)">
                       </div>
                     </div>
+                    <div class="row">
+                      <div class="col-lg-6 col-md-6">
+                        <div class="input-group input-group-outline mb-3">
+                          <label class="form-label"></label>
+                          <input type="text" class="form-control" onfocus="focused(this)" placeholder="Employees id" name="employeesid" onfocusout="defocused(this)">
+                        </div>
+                      </div>
                     <div class="col-lg-6 col-md-6">
                       <div class="input-group input-group-outline mb-3">
                         <label class="form-label"></label>
                         <input type="email" class="form-control" onfocus="focused(this)"   placeholder="Email" name="email" onfocusout="defocused(this)">
+                      </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6">
+                      <div class="input-group input-group-outline mb-3">
+                        <label class="form-label"></label>
+                        <input type="password" class="form-control" onfocus="focused(this)"   placeholder="password" name="password" onfocusout="defocused(this)">
                       </div>
                     </div>
                     <div class="col-lg-6 col-md-6">
@@ -293,53 +317,48 @@
                         <input type="text" class="form-control" onfocus="focused(this)" name="workexp" placeholder="Work Experience" onfocusout="defocused(this)">
                       </div>
                     </div>
-
+                    <div class="col-lg-6 col-md-6">
+                      <div class="input-group input-group-outline mb-3">
+                        <label class="form-label"></label>
+                        <input type="file" class="form-control" onfocus="focused(this)" name="photo"  onfocusout="defocused(this)">
+                      </div>
+                    </div>
+                   
+                    <div class="col-lg-12 col-md-6">
+                      <div class="input-group input-group-outline mb-3">
+                        <select class="form-select form-control" placeholder="courses" onfocus="focused(this)"
+                          onfocusout="defocused(this)" aria-label="Default select example" name="course">
+                          <option class="fw-lighter" selected>Courses</option>
+                          {% for course in addcourses %}
+                          <option value="{{course.id}}">{{course.coursename}} {{course.courseduration}} {{course.coursefees}}</option>
+                          {% endfor %}
+                        </select>
+                      </div>
+                    </div>
+                    
                     <div class="col-lg-6 col-md-6">
                         <div class="input-group input-group-outline mb-3">
                           <label class="form-label"></label>
-                          <input type="text" class="form-control" onfocus="focused(this)" name="ctc" placeholder="ctc" onfocusout="defocused(this)">
+                          <div class="form-check">
+                         <input type="radio" class="form-check-input" name="radio" value="M" checked>
+                         <label class="form-check-label">Male</label>
                         </div>
+                        <div class="form-check">
+                          <input type="radio" class="form-check-input" name="radio" value="F" checked>
+                          <label class="form-check-label">Female</label>
+                         </div>
+                         <div class="form-check">
+                          <input type="radio" class="form-check-input" name="radio" value="O" checked>
+                          <label class="form-check-label">Other</label>
+                         </div>
+                        </div>
+                      
+                      </div>
+                     
                       </div>
 
 
                    
-                   <!-- <div class="col-lg-6 col-md-6">
-                      <div class="input-group input-group-outline mb-3">
-                        <select class="form-select form-control" onfocus="focused(this)" onfocusout="defocused(this)"
-                          aria-label="Default select example">
-                          <option selected>Fees</option>
-                          <option value="13k">13k</option>
-                          <option value="15k">15k</option>
-                          <option value=30k">30k</option>
-                        </select>
-                      </div>
-                    </div>
-
-                    <div class="col-lg-6 col-md-6">
-                      <div class="input-group input-group-outline mb-3">
-                        <select class="form-select form-control" onfocus="focused(this)" onfocusout="defocused(this)"
-                          aria-label="Default select example">
-                          <option selected>Duration</option>
-                          <option value="3 Months">3 Months</option>
-                          <option value="6 Months">6 Months</option>
-                          <option value="9 Months">9 Months</option>
-                          <option value="12 Months">12 Months</option>
-
-                        </select>
-                      </div>
-                    </div>-->
-
-                    <!-- <div class="mb-3">
-                      <label for="formFile" class="form-label">Default file input example</label>
-                      
-                    </div> -->
-                    
-                    <!-- <div class="input-group input-group-outline mb-3"> -->
-                      <!-- <textarea class="form-control col-lg-12 col-md-6" placeholder="Leave a comment here" -->
-                      <!-- id="floatingTextarea"></textarea> -->
-                    <!-- </div> -->
-                    
-                  
 
                     <div class="text-center">
                       <button type="Submit" class="btn btn-lg bg-gradient-primary btn-lg w-100 mt-2 mb-0"

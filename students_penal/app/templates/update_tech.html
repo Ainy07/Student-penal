@@ -33,37 +33,56 @@
             <div class="card z-index-0 fadeIn3 fadeInBottom">
       
               <div class="card-body">
-                <form role="form" method="POST" action="/updateteacherdata/">
+                <form role="form" method="POST" action="/update_teacher/">
                   {% csrf_token %}
-                  <input type="hidden" class="form-control" name='uid' value="{{teacher.id}}">
+                  <input type="hidden" class="form-control" name='uid' value="{{i.id}}">
                   <div class="input-group input-group-outline my-3">
                     <label class="form-label">Name</label>
-                    <input type="text" class="form-control" name='name' value="{{teacher.teachername}}">
+                    <input type="text" class="form-control" name='name' value="{{i.teachername}}">
+                  </div>
+                  <div class="input-group input-group-outline my-3">
+                    <label class="form-label">employeesid</label>
+                    <input type="text" class="form-control" name='employeesid' value="{{i.employeesid}}">
                   </div>
                   <div class="input-group input-group-outline my-3">
                     <label class="form-label">Email</label>
-                    <input type="email" class="form-control" name='email' value="{{teacher.teacheremail}}">
+                    <input type="email" class="form-control" name='email' value="{{i.teacheremail}}">
                   </div>
                   <div class="input-group input-group-outline mb-3">
                     <label class="form-label">Mobile No.</label>
-                    <input type="number" class="form-control" name="mobile" value="{{teacher.teachermobile}}">
+                    <input type="number" class="form-control" name="mobile" value="{{i.teachermobile}}">
                   </div>
                   <div class="input-group input-group-outline mb-3">
                     <label class="form-label">Education</label>
-                    <input type="text" class="form-control" name="education" value="{{teacher.education}}">
+                    <input type="text" class="form-control" name="education" value="{{i.education}}">
                   </div>
                   <div class="input-group input-group-outline mb-3">
                     <label class="form-label">Join Date</label>
-                    <input type="date" class="form-control" name="joindate" value="{{teacher.joindate}}">
+                    <input type="date" class="form-control" name="joindate" value="{{i.joindate}}">
                   </div>
                   <div class="input-group input-group-outline mb-3">
                     <label class="form-label">Work Experience</label>
-                    <input type="text" class="form-control" name="workexp" value="{{teacher.workexp}}">
+                    <input type="text" class="form-control" name="workexp" value="{{i.workexp}}">
                   </div>
-                  <div class="input-group input-group-outline mb-3">
-                    <label class="form-label">CTC</label>
-                    <input type="text" class="form-control" name="ctc" value="{{teacher.ctc}}">
+                  <div class="col-lg-6 col-md-6">
+                    <div class="input-group input-group-outline mb-3">
+                      <label class="form-label">Photo</label>
+                      <input type="file" class="form-control"  value="{{i.photo}}" name="photo" >
+                    </div>
                   </div>
+<!--                  
+                  <div class="col-lg-12 col-md-6">
+                    <div class="input-group input-group-outline mb-3">
+                      <select class="form-select form-control" placeholder="courses" onfocus="focused(this)"
+                        onfocusout="defocused(this)" aria-label="Default select example" name="course">
+                        <option class="fw-lighter" selected>Courses</option>
+                        {% for course in addcourses %}
+                        <option value="{{course.id}}">{{course.coursename}} {{course.courseduration}} {{course.coursefees}}</option>
+                        {% endfor %}
+                      </select>
+                    </div>
+                  </div> -->
+                  
                   <div class="text-center" >
                     <button type="submit" class="btn bg-gradient-primary w-100 my-4 mb-2" >Update</button>
                   </div>

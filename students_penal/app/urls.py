@@ -1,5 +1,7 @@
 from django.urls import path,re_path
 from . import views
+from django.conf.urls.static import static
+from django.conf import settings
 urlpatterns = [
     path('',views.index),
     path('login/',views.login),
@@ -24,7 +26,7 @@ urlpatterns = [
     path('updatestu/<int:uid>/',views.updatestu),
     path('teacher/',views.teacher),
     path('addteacher/',views.addteacher),
-    path('deleteteacher/',views.deleteteacher),
-    path('update_tech/<int:uid>/',views.update_tech),
-    path('updateteacherdata/',views.updateteacherdata),
-]
+    re_path(r'^delete/(?P<pk>[0-9]+)/$', views.delete, name="delete"),
+    path('updatetech/<int:uid>/',views.updatetech),
+    path('update_teacher/',views.update_teacher),
+]+static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
