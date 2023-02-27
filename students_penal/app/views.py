@@ -247,7 +247,7 @@ def updatetech(request,uid):
 
 def update_teacher(request):
     if request.method == 'POST':
-        uid = request.POST['uid']
+        uid = request.POST.get('uid')
         teachername = request.POST['name']
         employeesid = request.POST['employeesid']
         teacheremail = request.POST['email']
@@ -255,12 +255,11 @@ def update_teacher(request):
         workexp=request.POST['workexp']
         education = request.POST['education']
         joindate = request.POST['joindate']
-        photo = request.POST['photo']
         Teacher.objects.filter(id=uid).update(teachername=teachername,employeesid=employeesid,
                                               teacheremail=teacheremail,
                                            teachermobile=teachermobile,workexp=workexp,
                                            education=education,
-                                           joindate=joindate,photo=photo
+                                           joindate=joindate,
                                            )
         return redirect('/teacher/')
     
