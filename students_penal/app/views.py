@@ -205,7 +205,7 @@ def addteacher(request):
         tech_workexp=request.POST.get("workexp")
         tech_addcourse_id = request.POST.get("course")
         tech_gender=request.POST.get("radio")
-        photo = request.POST.get('photo')
+        photo = request.FILES.get('photo')
         tech_course= Course.objects.get(id=tech_addcourse_id)
         if Teacher.objects.filter(teacheremail=tech_email).exists():
             messages.error(request, "Email id already exists")
