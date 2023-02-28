@@ -54,7 +54,11 @@ def delete(request):
 
 
 def dashboard(request):
-    return render(request,'dashboard.html')
+    data=Course.objects.all()
+    c=Course.objects.all().count()
+    a=AddStudents.objects.all().count()
+    t=Teacher.objects.all().count()
+    return render(request,'dashboard.html', {'c':c,'a':a,'t':t,'data':data})
 
 def employees(request):
     return render(request,'employees.html')
